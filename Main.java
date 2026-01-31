@@ -5,14 +5,14 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
         
-        System.out.print("Enter init number: ") ;
+        Display.Welcome(); //เเสดงหน้าเครื่องคิดเลข
         double initNum = input.nextDouble() ;
         input.nextLine(); //clear buffer
 
         boolean check = true ;
         //----------loop-------------
         while (check) {
-            System.out.println("Enter operator (+,-,*,/,%),type '=' to getresult and stop process") ;
+            Display.Interface();
             String op_val = input.nextLine() ;
             
             if (op_val.contains("=")) break ; //chek if "="  exit loop
