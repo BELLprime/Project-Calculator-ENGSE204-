@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Display {
     public static void Interface() {
         System.out.println(" _____________________ ");
@@ -19,18 +17,15 @@ public class Display {
     }
 
     public static void InitNum() {
-        System.out.println("Enter 0-9 to Add Number");
+        System.out.print("Enter initial number : ");
     }
 
     public static void nextNum() {
-        System.out.println("Enter next number: ");
+        System.out.print("Enter next number : ");
     }
 
     public static void OperatorList() {
-        System.out.println("Enter (+ - * / %) to Operator ");
+        System.out.print("Enter operator (+,-,*,/,%),type '=' to getresult and stop process : ") ;
     }
 
-    public static void DisplayResult(double result) {
-        System.out.println("= " + result);
-    }
 }
