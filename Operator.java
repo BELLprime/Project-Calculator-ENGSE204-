@@ -6,7 +6,7 @@ public class Operator {
         this.Result = firstNumber;
     }
 
-    public double calculator(String Operator ,double secondNumber) { //method Calculate
+    public void calculator(String Operator ,double secondNumber) { //method Calculate
 
         switch (Operator) {
 
@@ -33,9 +33,10 @@ public class Operator {
 
             default: // กรอกตัวอื่น
                 System.out.println("Invalid operator");
-                return 0;
         }
+    }
 
-            return this.Result;
+    public double getResult() {
+        return this.Result;
     }
 }

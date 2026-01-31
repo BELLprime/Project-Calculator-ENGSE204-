@@ -4,25 +4,29 @@ public class Main {
     public static void main(String[ ] args) {
 
         Scanner input = new Scanner(System.in);
-        
-        Display.Welcome(); //เเสดงหน้าเครื่องคิดเลข
+        // Display.Interface(); //เเสดงหน้าเครื่องคิดเลข
+
+        Display.InitNum(); 
         double initNum = input.nextDouble() ;
         input.nextLine(); //clear buffer
+
+        Operator operator = new Operator(initNum);
 
         boolean check = true ;
         //----------loop-------------
         while (check) {
-            Display.Interface();
+            Display.OperatorList();
             String op_val = input.nextLine() ;
             
             if (op_val.contains("=")) break ; //chek if "="  exit loop
             
-            System.out.print("Enter next number: ") ; //input new number
+            Display.nextNum(); ; //input new number
             double nextNum = input.nextDouble() ;
+
+            operator.calculator(op_val, nextNum);
             input.nextLine(); //clear buffer
-            
         }
-        
+        Display.DisplayResult(operator.getResult());
         input.close();
     }
 }
