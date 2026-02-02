@@ -8,7 +8,25 @@ public class Calculator {
     private ArrayList<Character> operators = new ArrayList<>() ; 
 
     public Calculator(String textCalculate) { //construct 
-        this.textCalculate = textCalculate;
+        this.textCalculate = textCalculate ;
+
+        String text = this.textCalculate.replaceAll(" ", "") ; //(✓ to here)
+        boolean IsAlpha = false ;
+        //validation 
+        if (text == null || text.isEmpty()) {
+            throw new IllegalArgumentException("!!!!Input Can't be null or empty.") ;
+        }
+
+        for (int i = 0 ; i < text.length() ; i++) { // have alphabetic --> a-z
+            if (Character.isAlphabetic(text.charAt(i) ) ) {
+                IsAlpha = true ;
+            } 
+        }
+
+        if (IsAlpha) {
+            throw new IllegalArgumentException("!!!Don't use alphabetic input in equation.") ;
+        } 
+        
     }
 
     public double getResultCAL () {
@@ -16,22 +34,31 @@ public class Calculator {
     }
 
     public void getresult() {
-        String text = this.textCalculate.replaceAll(" ", "") ;
-        
+        String text = this.textCalculate.replaceAll(" ", "") ;  
         String holderNum = "" ; 
 
         for (int i = 0 ; i < text.length() ; i++) {
             char c = text.charAt(i) ;
-            if ( c == '-' && (i == 0 || !Character.isDigit( text.charAt(i-1) ) ) ) { //case nigga-tive numbers in index [0] or index[i-1] is not digit
+
+            if ( c == '-' && (i == 0 || !Character.isDigit( text.charAt(i-1) ) ) ) { //case negative numbers in index [0] or index[i-1] is not digit -- > like 2-(-1) , -1
+                if (holderNum.contains("-")) {
+                    throw new IllegalArgumentException("Error : Too many minus operator -- .(i knew wat u think.)") ;
+                }
                 holderNum += c ;  
             }
             else if (Character.isDigit(c) || c == '.' ) {
                 holderNum += c ;  
             } else {
+                if (holderNum.isEmpty()) {
+                    throw new IllegalArgumentException("Error : duplicate operators like ++ , ** , // or %%. (Gulp)") ;
+                }
                 numbers.add(Double.parseDouble(holderNum) ) ; 
-                holderNum = "" ; //reset
                 operators.add(c) ; 
+                holderNum = "" ; //reset
             }
+        }
+        if (holderNum.isEmpty()) {
+            throw new IllegalArgumentException("Error : Equation cannot end with an operator.");
         }
         numbers.add(Double.parseDouble(holderNum)) ; 
 
@@ -51,6 +78,9 @@ public class Calculator {
                         break ;
 
                     case '/' :
+                        if (Snum == 0){
+                            throw new ArithmeticException("Error : Can't divide by zero!!!.") ;
+                        } 
                         result = Fnum / Snum ;
                         break ;
 
@@ -59,7 +89,7 @@ public class Calculator {
                         break ;
 
                     default:
-                        System.out.println("Error : Invalid equation!!!");
+                        System.out.println("Error : Invalid equation!!!.");
                         break;
                 }
                 numbers.set(i , result ) ;
