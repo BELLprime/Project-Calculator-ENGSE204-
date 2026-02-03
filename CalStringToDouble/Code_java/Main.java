@@ -1,4 +1,4 @@
-package Code_java ;
+package CalStringToDouble.Code_java ;
 import java.util.Scanner ;
 public class Main {
     public static void main(String[] args) {
