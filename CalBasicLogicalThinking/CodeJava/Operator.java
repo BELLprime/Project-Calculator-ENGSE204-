@@ -1,5 +1,5 @@
-public class Operator {
-    
+package CalBasicLogicalThinking.CodeJava;
+public class Operator { 
     private double Result;
 
     public Operator(double firstNumber) {

@@ -1,4 +1,6 @@
-class Display {
+package CalBasicLogicalThinking.CodeJava;
+public class Display {
+    
     public static void Interface() {
         System.out.println(" _____________________ ");
         System.out.println("|  _________________  |");
