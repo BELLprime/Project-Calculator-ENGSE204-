@@ -22,11 +22,7 @@ public class Calculator {
                 IsAlpha = true ;
             } 
         }
-
-        if (IsAlpha) {
-            throw new IllegalArgumentException("!!!Don't use alphabetic input in equation.") ;
-        } 
-        
+        //code 
     }
 
     public double getResultCAL () {

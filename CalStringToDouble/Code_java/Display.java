@@ -33,9 +33,7 @@ public class Display {
         System.out.println("|_____________________|");
     }
 
-    public static void DisplayNumber(ArrayList<Double> num) { //เเสดงตัวเลข
-        System.out.println("Numbers: " + num);
-    }
+    //code 
 
     public static void DisplayOperator(ArrayList<Character> op) { //เเสดงตัวดำเนินการ
         System.out.println("Operators: " + op) ;
