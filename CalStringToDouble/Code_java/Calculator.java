@@ -22,7 +22,11 @@ public class Calculator {
                 IsAlpha = true ;
             } 
         }
-        //code 
+        if (IsAlpha) {
+            System.out.println("dont use alphabetic in equation");
+        }
+
+        
     }
 
     public double getResultCAL () {
